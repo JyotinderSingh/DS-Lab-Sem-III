@@ -1,5 +1,3 @@
-//Incomplete - convert SLL based code to DLL
-
 #include<stdlib.h>
 #include<iostream>
 #include<process.h>
@@ -166,65 +164,6 @@ dnode* dnode::listReverse() {
     return head;
 }
 
-dnode* dnode::deleteAlt()
-{
-    if (head == NULL){
-        cout<<"List is empty\n";
-        return head;
-    }
-
-    dnode *previous, *current, *next;    
-    previous = head;
-    current = head->next;
-    while (previous !=NULL && current != NULL) 
-    {
-        previous->next = current->next; 
-        next = current->next;
-        delete current;
-        if(next) 
-        {
-            next->prev = previous;
-            current = next->next;
-        }
-        else 
-        current = NULL;
-        previous = next;
-    }
-    return head;
-}
-
-dnode* dnode::sortedInsert(int ele)
-{
-    dnode* new_dnode = new dnode;
-    new_dnode->data = ele;
-    new_dnode->next = NULL;
-    dnode* current;
-    /* Special case for the head end */
-    if (head == NULL || (head)->data >= new_dnode->data)
-    {
-        new_dnode->next = head;
-        head = new_dnode;
-        head->prev = NULL;
-        head->next->prev = head;
-        return head;
-    }
-    else
-    {
-        /* Locate the dnode before the point of insertion */
-        current = head;
-        while (current->next!=NULL &&
-               current->next->data < new_dnode->data)
-        {
-            current = current->next;
-        }
-        new_dnode->next = current->next;
-        current->next = new_dnode;
-        new_dnode->next->prev = new_dnode;
-        new_dnode->prev = current;
-    }
-    return head;
-}
-
 int main() {
 	int ch, x, y;
 	dnode ll;
@@ -234,9 +173,9 @@ int main() {
 		<<"\n3. Transverse"
 		<<"\n4. Delete an element"
 		<<"\n5. Reverse the list"
-		<<"\n6. Delete Alternate dnodes"
-		<<"\n7. Insert into sorted list"
-		<<"\n8. EXIT\n\n";
+		// <<"\n6. Delete Alternate dnodes"
+		// <<"\n7. Insert into sorted list"
+		<<"\n6. EXIT\n\n";
 		cin>>ch;
 
 		switch(ch) {
@@ -266,17 +205,7 @@ int main() {
                 ll.listReverse();
                 ll.transverse();
                 break;
-            case 6:
-                ll.deleteAlt();
-                ll.transverse();
-                break;
-		    case 7:
-		        cout<<"\nEnter the value to be inserted: ";
-		        cin>>x;
-		        ll.sortedInsert(x);
-		        ll.transverse();
-                break;
-		    case 8:
+		    case 6:
 		        exit(0);
             default:
                 cout<<"\nEnter a valid choice\n";
