@@ -12,7 +12,7 @@ public:
     node *create(node *,int,int);
     void display(node *);
     node *add(node *,node *);
-    node *mul(node *,node *);
+    // node *mul(node *,node *);
 }*first1=NULL,*first2=NULL,*first3=NULL,*first4=NULL;
 
 // node * node::mul(node *f1,node *f2)
