@@ -2,7 +2,9 @@
 // C program to demonstrate insert operation in binary search tree 
 #include<stdio.h> 
 #include<stdlib.h> 
-   
+#include<iostream>
+using namespace std;
+
 struct node 
 { 
     int key; 
@@ -24,7 +26,7 @@ void inorder(struct node *root)
     if (root != NULL) 
     { 
         inorder(root->left); 
-        printf("%d \n", root->key); 
+        printf("%d ", root->key); 
         inorder(root->right); 
     } 
 } 
@@ -136,6 +138,10 @@ int main()
    
     // print inoder traversal of the BST 
     inorder(root); 
+    cout<<endl;
+    deleteNode(root, 70);
+
+    inorder(root);
    
     return 0; 
 } 
