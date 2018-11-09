@@ -10,15 +10,6 @@ public:
         this->data = data;
         left = right = nullptr;
     }
-
-    // void printPostOrder(node*);
-    // void printPreOrder(node*);
-    // void printInOrder(node*);
-    // bool printAncestors(node*, int);
-    // int maxDepth(node*);
-    // void display(node*, int);
-    // void getParent(node*, int);
-    // int getLeafCount(node*);
 };
 
 void printPostOrder(node* node) {
